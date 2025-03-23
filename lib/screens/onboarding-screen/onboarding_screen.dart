@@ -1,15 +1,14 @@
 import 'package:ai_mental_health/screens/onboarding-screen/center_image.dart';
 import 'package:ai_mental_health/screens/onboarding-screen/headline_text.dart';
 import 'package:ai_mental_health/screens/onboarding-screen/moto_text.dart';
+import 'package:ai_mental_health/screens/onboarding-screen/onboarding_button.dart';
 import 'package:ai_mental_health/screens/onboarding-screen/pattern_background.dart';
 import 'package:ai_mental_health/utils/extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:ai_mental_health/utils/assets.dart';
 import 'package:ai_mental_health/utils/colours.dart';
-import 'package:ai_mental_health/widgets/app_rounded_icon_button.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  static const routeName = '/';
   const OnboardingScreen({super.key});
 
   @override
@@ -45,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         });
       });
     } else {
-      Navigator.pushNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/home');
     }
   }
 
@@ -67,13 +66,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
           child: Column(
             children: [
-              MotoText(textAnimationController: _textAnimationController)
-                  .animate()
-                  .fade(
-                    duration: const Duration(milliseconds: 700),
-                    curve: Curves.easeInOut,
-                  )
-                  .scale(begin: Offset(2, 2), end: Offset(1, 1)),
+              MotoText(textAnimationController: _textAnimationController),
               SizedBox(
                 height: size.height * 0.46,
                 width: size.width,
@@ -87,29 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               const SizedBox(height: 50),
               HedlineText(size: size),
               const SizedBox(height: 20),
-              AppRoundedIconButton(
-                    source: Assets.arrowIcon,
-                    enableBorder: true,
-                    size: 17,
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 14,
-                      horizontal: 32,
-                    ),
-                    onPressed: _toggleImage,
-                  )
-                  .animate(delay: const Duration(milliseconds: 1300))
-                  .rotate(
-                    begin: -0.2,
-                    end: 0,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.fastOutSlowIn,
-                  )
-                  .scale(
-                    begin: Offset(0.0, 0.0),
-                    end: Offset(1, 1),
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.fastOutSlowIn,
-                  ),
+              OnboardingButton(onPressed: _toggleImage),
             ],
           ),
         ),

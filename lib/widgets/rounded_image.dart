@@ -81,7 +81,10 @@ class RoundedImage extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: color,
-        border: Border.all(color: borderColor),
+        border:
+            borderColor == Colours.transparentColor
+                ? null
+                : Border.all(color: borderColor),
       ),
       child: ClipRRect(child: _buildImage()),
     );

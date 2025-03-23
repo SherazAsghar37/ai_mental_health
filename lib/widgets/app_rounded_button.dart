@@ -18,7 +18,7 @@ class AppRoundedButton extends StatelessWidget {
     this.width = 50,
     this.fit = BoxFit.cover,
     this.height = 50,
-    this.enableBorder = false,
+    this.enableBorder = true,
     this.backgroundColor = Colors.transparent,
     required this.onPressed,
     this.isSelected = false,
@@ -29,7 +29,7 @@ class AppRoundedButton extends StatelessWidget {
     return BouncingButton(
       onPressed: onPressed,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        padding: EdgeInsets.fromLTRB(25, 13, 25, 11),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(height / 2),
           border:
@@ -39,8 +39,9 @@ class AppRoundedButton extends StatelessWidget {
         ),
         child: AppText(
           text: text,
-          fontSize: 16,
-          fontWeight: isSelected ? FontWeight.w500 : FontWeight.w300,
+          fontSize: 18,
+          height: 1,
+          fontWeight: isSelected ? FontWeight.w400 : FontWeight.w300,
           color: isSelected ? Colours.blackColor : Colours.borderColor,
         ),
       ),

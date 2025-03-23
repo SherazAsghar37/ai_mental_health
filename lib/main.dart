@@ -1,3 +1,4 @@
+import 'package:ai_mental_health/routes/routes_generator.dart';
 import 'package:ai_mental_health/screens/onboarding-screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,11 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-
-      routes: {
-        '/': (context) => OnboardingScreen(),
-        '/home': (context) => OnboardingScreen(),
-      },
+      onGenerateRoute: routesGenerator,
+      home: OnboardingScreen(),
     );
   }
 }

@@ -11,6 +11,7 @@ class AppRoundedIconButton extends StatelessWidget {
   final Color backgroundColor;
   final VoidCallback onPressed;
   final EdgeInsets padding;
+  final Color borderColor;
   const AppRoundedIconButton({
     super.key,
     required this.source,
@@ -20,6 +21,7 @@ class AppRoundedIconButton extends StatelessWidget {
     this.backgroundColor = Colors.transparent,
     required this.onPressed,
     this.padding = const EdgeInsets.all(15),
+    this.borderColor = Colours.blackColor,
   });
 
   @override
@@ -29,11 +31,10 @@ class AppRoundedIconButton extends StatelessWidget {
       child: Container(
         padding: padding,
         decoration: BoxDecoration(
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(50),
           border:
-              enableBorder
-                  ? Border.all(color: Colours.blackColor, width: 1)
-                  : null,
+              enableBorder ? Border.all(color: borderColor, width: 1) : null,
         ),
         child: SizedBox(
           height: size,
